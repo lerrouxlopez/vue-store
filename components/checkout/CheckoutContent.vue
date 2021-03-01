@@ -1,7 +1,7 @@
 <template>
   <v-card class="pb-6">
     <v-card-title class="font-weight-bold">Checkout</v-card-title>
-    <v-card-subtitle>
+    <div class="px-6">
       <v-row>
         <v-col cols="5">
           <div class="caption font-weight-bold pt-3">
@@ -64,6 +64,23 @@
           </div>
         </v-col>
       </v-row>
-    </v-card-subtitle>
+      <div class="py-3">
+        <div class="caption font-weight-bold pt-3">
+          Share
+        </div>
+        <p class="caption pt-3">Invite three (3) people to iBial. something about 10 days to wait for eople to join with the invite link?</p>
+        <v-row>
+          <v-col cols="5">
+            <v-text-field
+              outlined
+              dense
+              hide-details
+              placeholder="https://www.invitelinksample"
+              append-icon="mdi-vector-arrange-below"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </div>
+    </div>
   </v-card>
 </template>
