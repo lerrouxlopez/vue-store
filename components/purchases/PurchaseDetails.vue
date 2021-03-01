@@ -74,6 +74,19 @@
             >Rate this product</v-btn>
           </v-card-text>
         </v-card>
+        <div class="py-3">
+          <v-row>
+            <v-col cols="1" class="d-flex justify-center px-0">
+              <v-avatar color="primary" width="50" class="ml-3"></v-avatar>
+            </v-col>
+            <v-col>
+              <div class="caption font-weight-bold">User Name</div>
+              <div class="caption medium_gray--text">Feb. 14, 2021</div>
+              <div>😃</div>
+              <p class="caption">Saperet euripidis an cum. Pro ea quas epicurei, ad eam iriure albucius constituam. Eum cu cetero ornatus, cum no nobis interpretaris concludaturque, an bonorum eruditi electram usu. Eos mazim tritani imperdiet no, percipit gloriatur ne his.</p>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </div>
     <v-dialog
