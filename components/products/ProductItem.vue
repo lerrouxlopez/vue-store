@@ -3,12 +3,12 @@
     <v-card
       class="p-3"
       max-height="500"
-      max-width="275"
+      width="350"
     >
       <div class="product-item" @click="details(product)">
         <v-img :src="product.img" width="200" class="mx-auto"></v-img>
-        <v-card-title>{{ product.title }}</v-card-title>
-        <v-card-subtitle class="font-weight-bold">{{ product.subtitle }}</v-card-subtitle>
+        <v-card-title>{{ product.title }} {{ product.subtitle }}</v-card-title>
+        <!--<v-card-subtitle class="font-weight-bold">{{ product.subtitle }}</v-card-subtitle>-->
         <v-card-text>
             {{ product.details.length > 70 ? product.details.substring(0, 70) + '...' : product.details }}
         </v-card-text>

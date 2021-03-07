@@ -22,7 +22,7 @@ export default {
         {
           img: '/img/Logo_Icon_Pro_200x200.png',
           title: 'Mad Chatter Pro',
-          subtitle: 'Mad Chatter Pro',
+          subtitle: '',
           details: 'Turn your website visitors into valued customers with Mad Chatter. With features like chat agent assignment, multimedia chat, surveys, and widget personalization, your business will now grow faster than ever.',
           price: '$29.00',
           tags: ['#MadChatterPro', '#MadChatter', '#Chat', '#iBial'],
@@ -41,8 +41,8 @@ export default {
         },
         {
           img: '/img/Logo_Reseller_200x200.png',
-          title: 'Mad Chatter Reseller',
-          subtitle: 'Package A',
+          title: 'Mad Chatter',
+          subtitle: 'Reseller A',
           details: 'Earn recurring revenues with a small one-time investment and be your own boss. Mad Chatter Reseller Package A serves as the foundation for a white-label reselling business model and comes with 5 license keys.',
           price: '$89.00',
           tags: ['#MadChatterPro', '#MadChatter', '#Chat', '#iBial'],
@@ -57,8 +57,8 @@ export default {
         },
         {
           img: '/img/Logo_Reseller_200x200.png',
-          title: 'Mad Chatter Reseller',
-          subtitle: 'Package B',
+          title: 'Mad Chatter',
+          subtitle: 'Reseller B',
           details: 'Earn recurring revenues with a small one-time investment and be your own boss. Mad Chatter Reseller Package B serves as the foundation for a white-label reselling business model and comes with 20 license keys.',
           price: '$99.00',
           tags: ['#MadChatterPro', '#MadChatter', '#Chat', '#iBial'],
@@ -77,8 +77,8 @@ export default {
         },
         {
           img: '/img/Logo_Reseller_200x200.png',
-          title: 'Mad Chatter Reseller',
-          subtitle: 'Package C',
+          title: 'Mad Chatter',
+          subtitle: 'Reseller C',
           details: 'Earn recurring revenues with a small one-time investment and be your own boss. Mad Chatter Reseller Package C serves as the foundation for a white-label reselling business model and comes with 120 license keys.',
           price: '$399.00',
           tags: ['#MadChatterPro', '#MadChatter', '#Chat', '#iBial'],

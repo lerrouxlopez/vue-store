@@ -29,18 +29,32 @@
             rounded
             color="primary"
             class="text-capitalize justify-end"
+            @click="dialog = true"
           >Rate product</v-btn>
         </div>
       </v-card-actions>
     </v-card>
+    <v-dialog
+      v-model="dialog"
+      max-width="500"
+    >
+      <RatingReview />
+    </v-dialog>
   </div>
 </template>
 
 <script>
+import { RatingReview } from '@/components/purchases'
+
 export default {
+  components: {
+    RatingReview
+  },
   props: ['details'],
   data () {
-    return {}
+    return {
+      dialog: false
+    }
   },
   methods: {
     route (details) {

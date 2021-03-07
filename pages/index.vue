@@ -1,10 +1,10 @@
 <template>
   <div class="store-container">
     <v-row>
-      <v-col cols="3">
+      <!--<v-col cols="3">
         <Sidebar />
-      </v-col>
-      <v-col cols="9">
+      </v-col>-->
+      <v-col>
         <StoreContent />
       </v-col>
     </v-row>
@@ -12,10 +12,9 @@
 </template>
 
 <script>
-import { Sidebar, StoreContent } from '@/components/layouts'
+import { StoreContent } from '@/components/layouts'
 export default {
   components: {
-    Sidebar,
     StoreContent
   }
 }

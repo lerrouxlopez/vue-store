@@ -6,14 +6,20 @@
         <CartItem v-for="i in 3" :key="i" />
       </v-card-text>
     </v-card>
+    <div class="pa-3">
+      <h4>You might also like</h4>
+      <MoreOfferings />
+    </div>
   </div>
 </template>
 
 <script>
 import { CartItem } from '@/components/cart'
+import { MoreOfferings } from '@/components/products'
 export default {
   components: {
-    CartItem
+    CartItem,
+    MoreOfferings
   },
   data () {
     return {
