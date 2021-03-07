@@ -84,3 +84,13 @@
     </div>
   </v-card>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      payment: ''
+    }
+  }
+}
+</script>

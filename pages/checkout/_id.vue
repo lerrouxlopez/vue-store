@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { CheckoutContent, CheckoutSidebar } from '@/components/cart'
+import { CheckoutContent, CheckoutSidebar } from '@/components/checkout'
 
 export default {
   components: {
