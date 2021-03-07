@@ -9,7 +9,11 @@
           </div>
           <div class="text-center caption pt-3">
             Already have an account?
-            <a href="#" class="primary--text font-weight-bold text-decoration-none">Sign in</a>
+            <a
+              href="#"
+              class="primary--text font-weight-bold text-decoration-none"
+              @click="$router.push('/login')"
+            >Sign in</a>
           </div>
           <div class="pt-6">
             <v-btn

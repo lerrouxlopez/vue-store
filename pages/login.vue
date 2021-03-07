@@ -63,7 +63,11 @@
           <div class="text-center mt-6"><h5>Forgot Password?</h5></div>
           <div class="text-center mt-3 caption">
             Don't have an account?
-            <a href="#" class="primary--text font-weight-bold text-decoration-none">Sign up</a>
+            <a
+              href="#"
+              class="primary--text font-weight-bold text-decoration-none"
+              @click="$router.push('/signup')"
+            >Sign up</a>
           </div>
         </div>
       </v-card>

@@ -94,7 +94,51 @@
             </v-card-actions>
           </v-card>
         </v-menu>
+        <v-btn
+          icon
+        >
+            <v-badge
+                color="red accent-4"
+                content="0"
+                bordered
+            >
+            <v-icon>mdi-bell-outline</v-icon>
+            </v-badge>
+        </v-btn>
+        <v-menu bottom left offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              text
+              rounded
+              class="text-capitalize mt-2"
+              :ripple="false"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-avatar size="40" color="primary"></v-avatar>
+              <span class="font-weight-bold px-2">User Name</span>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>Purchases</v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>Account</v-list-item-title>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item>
+              <v-list-item-title>Log Out</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </div>
     </v-app-bar>
   </div>
 </template>
+
+<style scoped>
+.v-btn::before {
+  background-color: transparent;
+}
+</style>
