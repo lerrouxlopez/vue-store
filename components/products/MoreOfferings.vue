@@ -17,14 +17,13 @@
         >
           <v-card
             class="ma-4"
-            height="350"
-            width="250"
-            @click="toggle"
+            height="365"
+            width="270"
           >
             <v-avatar
               color="primary"
               rounded
-              width="250"
+              width="270"
               height="100"
               class="d-flex justify-end align-start"
             >
@@ -67,3 +66,18 @@
     </v-sheet>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      model: ''
+    }
+  },
+  methods: {
+    buynow () {
+      console.log('buy now')
+    }
+  }
+}
+</script>
