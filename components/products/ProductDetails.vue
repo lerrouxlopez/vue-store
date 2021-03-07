@@ -4,7 +4,7 @@
       <v-col cols="8">
         <v-card>
           <v-card-title class="d-flex justify-space-between">
-            <span>{{ details.title }} {{ details.subtitle != details.title ? details.subtitle : '' }}</span>
+            <span class="font-weight-bold">{{ details.title }} {{ details.subtitle != details.title ? details.subtitle : '' }}</span>
             <span>
               <v-btn icon>
                 <v-icon>mdi-bookmark-outline</v-icon>
@@ -29,11 +29,90 @@
           </v-card-text>
           <v-img :src="details.img" width="250" class="mx-auto" />
           <v-card-subtitle>
+            <div class="px-3">
+              <div>
+                <h3>Description</h3>
+              </div>
+              <p class="pt-3">{{ details.details }}</p>
+              <ul class="ml-6">
+                <li v-for="item in details.features" :key="item">{{ item }}</li>
+              </ul>
+              <div class="py-6">
+                <h3>Pricing comparison</h3>
+              </div>
+              <v-simple-table class="pb-6">
+                <thead>
+                  <tr>
+                    <th>Packages</th>
+                    <th>This is the basic package</th>
+                    <th>This is the standard package</th>
+                    <th>This is the premium package</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, i) in comparison" :key="i">
+                    <td  class="caption text-center">{{ item.package }}</td>
+                    <td  class="caption text-center"><v-icon color="primary">{{ item.basic ? 'mdi-check' : ''}}</v-icon></td>
+                    <td  class="caption text-center"><v-icon color="primary">{{ item.standard ? 'mdi-check' : '' }}</v-icon></td>
+                    <td  class="caption text-center"><v-icon color="primary">{{ item.premium ? 'mdi-check' : '' }}</v-icon></td>
+                  </tr>
+                  <tr>
+                    <td class="caption text-center">Refund period</td>
+                    <td class="medium_gray--text caption text-center">30 days</td>
+                    <td class="medium_gray--text caption text-center">30 days</td>
+                    <td class="medium_gray--text caption text-center">30 days</td>
+                  </tr>
+                  <tr>
+                    <td class="caption text-center">Delivery time</td>
+                    <td class="medium_gray--text caption text-center">24 hrs</td>
+                    <td class="medium_gray--text caption text-center">24 hrs</td>
+                    <td class="medium_gray--text caption text-center">24 hrs</td>
+                  </tr>
+                  <tr>
+                    <td class="caption text-center">Price</td>
+                    <td class="medium_gray--text caption font-weight-bold text-center py-3">
+                      $10
+                      <div class="pt-3">
+                        <v-btn
+                          rounded
+                          outlined
+                          color="primary"
+                          class="text-capitalize"
+                        >Select</v-btn>
+                      </div>
+                    </td>
+                    <td class="medium_gray--text caption font-weight-bold text-center py-3">
+                      $50
+                      <div class="pt-3">
+                        <v-btn
+                          rounded
+                          outlined
+                          color="primary"
+                          class="text-capitalize"
+                        >Select</v-btn>
+                      </div>
+                    </td>
+                    <td class="medium_gray--text caption font-weight-bold text-center py-3">
+                      $100
+                      <div class="pt-3">
+                        <v-btn
+                          rounded
+                          outlined
+                          color="primary"
+                          class="text-capitalize"
+                        >Select</v-btn>
+                      </div>
+                    </td>
+                  </tr>
+                  <v-divider></v-divider>
+                </tbody>
+              </v-simple-table>
+            </div>
             <v-tabs
               color="primary accent-4"
             >
-              <v-tab class="text-capitalize">Description</v-tab>
-              <v-tab class="text-capitalize">Reviews</v-tab>
+              <v-tab class="text-capitalize">Post</v-tab>
+              <v-tab class="text-capitalize">Review</v-tab>
               <v-tab-item>
                 <ProductDescription :details="details.details" :features="details.features"/>
               </v-tab-item>
@@ -196,6 +275,26 @@ export default {
             'Downloadable email transcripts',
             'Easy to install and use'
           ]
+        }
+      ],
+      comparison: [
+        {
+          package: 'Content 1',
+          basic: true,
+          standard: true,
+          premium: true
+        },
+        {
+          package: 'Content 2',
+          basic: false,
+          standard: true,
+          premium: true
+        },
+        {
+          package: 'Content 3',
+          basic: false,
+          standard: false,
+          premium: true
         }
       ]
     }
