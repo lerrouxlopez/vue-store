@@ -2,7 +2,7 @@
   <div class="pt-6">
     <v-card-text>
       <v-textarea
-        rows="3"
+        rows="2"
         outlined
         hide-details
         label="Post Something"

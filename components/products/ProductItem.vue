@@ -12,10 +12,14 @@
         <v-card-text>
             {{ product.details.length > 70 ? product.details.substring(0, 70) + '...' : product.details }}
         </v-card-text>
+        <div class="py-3 px-6 d-flex justify-space-between">
+          <span>😃 16 reviews</span>
+          <span class="font-weight-bold">{{ product.price }}</span>
+        </div>
         <v-divider class="mx-4"></v-divider>
       </div>
       <v-card-actions class="d-flex justify-space-between px-3">
-        <span>{{ product.price }}</span>
+        <span></span>
         <v-btn
             color="primary"
             rounded
