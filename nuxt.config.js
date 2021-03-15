@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - ibial-store',
-    title: 'ibial-store',
+    titleTemplate: '',
+    title: 'iBial Store',
     htmlAttrs: {
       lang: 'en'
     },
@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/ibial-logo.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins&display=swap"' }
     ]
   },
