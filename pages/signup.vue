@@ -45,6 +45,15 @@
           </div>
           <div>
             <v-text-field
+              v-model="name"
+              color="primary"
+              placeholder="Your Name"
+              hide-details
+            ></v-text-field>
+          </div>
+          <div>
+            <v-text-field
+              v-model="email"
               color="primary"
               placeholder="Your Email Address"
               hide-details
@@ -52,6 +61,7 @@
           </div>
           <div>
             <v-text-field
+              v-model="password"
               color="primary"
               type="password"
               placeholder="Password"
@@ -60,6 +70,7 @@
           </div>
           <div>
             <v-text-field
+              v-model="confirm_password"
               color="primary"
               type="password"
               placeholder="Confirm Password"
@@ -78,6 +89,7 @@
                 class="text-capitalize white--text mt-4"
                 block
                 depressed
+                @click="register"
             >
               Get Started
             </v-btn>
@@ -86,6 +98,48 @@
       </v-card>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      confirm_password: ''
+    }
+  },
+  methods: {
+    async register () {
+      const details = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        c_password: this.confirm_password
+      }
+      try {
+        await this.$accountRepository.register(details)
+        this.loginCredentials(details)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async loginCredentials (credentials) {
+      const details = {
+        email: credentials.email,
+        password: credentials.password
+      }
+      try {
+        await this.$auth.loginWith('local', {
+          data: details
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .container {
