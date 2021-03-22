@@ -105,7 +105,7 @@
             <v-icon>mdi-bell-outline</v-icon>
             </v-badge>
         </v-btn>
-        <v-menu bottom left offset-y>
+        <v-menu v-if="$auth.loggedIn" bottom left offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               text
@@ -116,7 +116,7 @@
               v-on="on"
             >
               <v-avatar size="40" color="primary"></v-avatar>
-              <span class="font-weight-bold px-2">User Name</span>
+              <span class="font-weight-bold px-2">{{ $auth.user.name }}</span>
             </v-btn>
           </template>
           <v-list>
@@ -127,15 +127,39 @@
               <v-list-item-title>Account</v-list-item-title>
             </v-list-item>
             <v-divider></v-divider>
-            <v-list-item>
+            <v-list-item @click="logout">
               <v-list-item-title>Log Out</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
+        <div v-else class="px-3 pt-1">
+          <v-btn
+              color="primary"
+              rounded
+              outlined
+              class="text-capitalize px-3"
+              @click="$router.push('/login')"
+          >
+              Login
+          </v-btn>
+        </div>
       </div>
     </v-app-bar>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {}
+  },
+  methods: {
+    logout () {
+      this.$auth.logout()
+    }
+  }
+}
+</script>
 
 <style scoped>
 .v-btn::before {

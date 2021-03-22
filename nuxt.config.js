@@ -41,11 +41,14 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://accounts.ibial.com/api/v1'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -64,6 +67,34 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/login',
+            method: 'post',
+            propertyName: 'success.token'
+          },
+          user: {
+            url: '/getUser',
+            method: 'post',
+            propertyName: 'success'
+          },
+          logout: {
+            url: '/logout',
+            method: 'post',
+            propertyName: false
+          }
+        }
+      }
+    },
+    redirect: {
+      login: '/',
+      logout: '/'
     }
   },
 

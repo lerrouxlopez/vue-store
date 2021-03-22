@@ -37,6 +37,7 @@
           </div>
           <div>
             <v-text-field
+              v-model="email"
               color="primary"
               placeholder="Your Email Address"
               hide-details
@@ -44,6 +45,7 @@
           </div>
           <div>
             <v-text-field
+              v-model="password"
               color="primary"
               type="password"
               placeholder="Password"
@@ -56,6 +58,7 @@
                 class="text-capitalize white--text mt-4"
                 block
                 depressed
+                @click="login"
             >
               Login
             </v-btn>
@@ -73,6 +76,32 @@
       </v-card>
     </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    async login () {
+      const details = {
+        email: this.email,
+        password: this.password
+      }
+      try {
+        await this.$auth.loginWith('local', {
+          data: details
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+}
+</script>
 
 <style scoped>
 .container {
