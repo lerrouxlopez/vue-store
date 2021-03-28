@@ -43,70 +43,83 @@
           <div class="or__divider--container mt-5">
             <div class="text-center mx-auto white or__divider--line caption">OR</div>
           </div>
-          <div>
-            <v-text-field
-              v-model="name"
-              color="primary"
-              placeholder="Your Name"
-              hide-details
-            ></v-text-field>
-          </div>
-          <div>
-            <v-text-field
-              v-model="email"
-              color="primary"
-              placeholder="Your Email Address"
-              hide-details
-            ></v-text-field>
-          </div>
-          <div>
-            <v-text-field
-              v-model="password"
-              color="primary"
-              type="password"
-              placeholder="Password"
-              hide-details
-            ></v-text-field>
-          </div>
-          <div>
-            <v-text-field
-              v-model="confirm_password"
-              color="primary"
-              type="password"
-              placeholder="Confirm Password"
-            ></v-text-field>
-          </div>
-          <div>
-            <v-checkbox
-              label="I agree to the Terms and Conditions."
-              class="terms-conditions"
-            ></v-checkbox>
-          </div>
-          <div>
-            <v-btn
-                rounded
+          <v-form ref="form" v-model="valid">
+            <div>
+              <v-text-field
+                v-model="name"
                 color="primary"
-                class="text-capitalize white--text mt-4"
-                block
-                depressed
-                @click="register"
-            >
-              Get Started
-            </v-btn>
-          </div>
+                placeholder="Your Name"
+                :rules="[required('name')]"
+              ></v-text-field>
+            </div>
+            <div>
+              <v-text-field
+                v-model="email"
+                color="primary"
+                placeholder="Your Email Address"
+                :rules="[required('email'), isValidEmail()]"
+              ></v-text-field>
+            </div>
+            <div>
+              <v-text-field
+                v-model="password"
+                color="primary"
+                type="password"
+                placeholder="Password"
+                :rules="[required('password'), minLength('password', 5)]"
+              ></v-text-field>
+            </div>
+            <div>
+              <v-text-field
+                v-model="confirm_password"
+                color="primary"
+                type="password"
+                placeholder="Confirm Password"
+                :rules="[required('confirm password'),password === confirm_password || 'Password must match']"
+              ></v-text-field>
+            </div>
+            <div>
+              <v-checkbox
+                v-model="terms"
+                :rules="[terms === true || 'You must agree to continue!']"
+                label="I agree to the Terms and Conditions."
+                class="terms-conditions"
+              ></v-checkbox>
+            </div>
+            <div>
+              <v-btn
+                  rounded
+                  color="primary"
+                  class="text-capitalize white--text mt-4"
+                  block
+                  depressed
+                  @click="register"
+                  :disabled="!valid"
+                  :loading="loading"
+              >
+                Get Started
+              </v-btn>
+            </div>
+          </v-form>
         </div>
       </v-card>
     </div>
 </template>
 
 <script>
+import validations from '@/utils/validations'
+
 export default {
   data () {
     return {
+      ...validations,
       name: '',
       email: '',
       password: '',
-      confirm_password: ''
+      confirm_password: '',
+      valid: true,
+      loading: false,
+      terms: ''
     }
   },
   methods: {
@@ -117,11 +130,26 @@ export default {
         password: this.password,
         c_password: this.confirm_password
       }
+      this.loading = true
       try {
         await this.$accountRepository.register(details)
+        const notif = {
+          display: true,
+          type: 'primary',
+          message: 'Successfully registered, Loggin in..'
+        }
+        this.$store.dispatch('addNotifications', notif)
+        this.loading = false
         this.loginCredentials(details)
       } catch (error) {
         console.log(error)
+        this.loading = false
+        const notif = {
+          display: true,
+          type: 'error',
+          message: 'There was an issue signing up. Please try again.'
+        }
+        this.$store.dispatch('addNotifications', notif)
       }
     },
     async loginCredentials (credentials) {
