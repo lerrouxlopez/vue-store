@@ -154,8 +154,18 @@ export default {
     return {}
   },
   methods: {
-    logout () {
-      this.$auth.logout()
+    async logout () {
+      try {
+        await this.$auth.logout()
+        const notif = {
+          display: true,
+          type: 'primary',
+          message: 'Logout Successfully.'
+        }
+        this.$store.dispatch('addNotifications', notif)
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
