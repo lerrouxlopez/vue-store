@@ -49,6 +49,7 @@
               color="primary"
               type="password"
               placeholder="Password"
+              @keyup.enter="login"
             ></v-text-field>
           </div>
           <div>
@@ -59,6 +60,7 @@
                 block
                 depressed
                 @click="login"
+                :loading="loading"
             >
               Login
             </v-btn>
@@ -82,7 +84,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      loading: false
     }
   },
   methods: {
@@ -91,12 +94,27 @@ export default {
         email: this.email,
         password: this.password
       }
+      this.loading = true
       try {
         await this.$auth.loginWith('local', {
           data: details
         })
+        const notif = {
+          display: true,
+          type: 'primary',
+          message: 'Thank you for signing in..'
+        }
+        this.$store.dispatch('addNotifications', notif)
+        this.loading = false
       } catch (error) {
         console.log(error)
+        const notif = {
+          display: true,
+          type: 'error',
+          message: 'There was an issue signing in. Please try again.'
+        }
+        this.$store.dispatch('addNotifications', notif)
+        this.loading = false
       }
     }
   }

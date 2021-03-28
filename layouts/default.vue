@@ -16,11 +16,20 @@
         <Footer />
       </div>
     </v-footer>
+    <v-snackbar v-model="notification" :color="mscolor" right top>
+      {{ message }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="white" v-bind="attrs" icon @click="notification = false">
+          <v-icon>{{ mscolor == 'primary' ? 'mdi-check' : 'mdi-close'}}</v-icon>
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-app>
 </template>
 
 <script>
 import { Header, Footer } from '@/components/layouts'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -32,6 +41,9 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
+      notification: false,
+      message: '',
+      mscolor: '',
       items: [
         {
           icon: 'mdi-apps',
@@ -48,6 +60,16 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  computed: {
+    ...mapGetters(['getNotifications'])
+  },
+  watch: {
+    getNotifications () {
+      this.notification = this.getNotifications.display
+      this.message = this.getNotifications.message
+      this.mscolor = this.getNotifications.type
     }
   },
   methods: {}
