@@ -72,7 +72,10 @@ export default {
       this.mscolor = this.getNotifications.type
     }
   },
-  methods: {}
+  methods: {},
+  mounted () {
+    this.$store.dispatch('getProducts')
+  }
 }
 </script>
 

@@ -44,7 +44,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
-
+  
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://accounts.ibial.com/api/v1'
