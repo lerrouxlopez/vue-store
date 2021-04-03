@@ -30,13 +30,13 @@
       <v-card-actions class="d-flex justify-space-between px-3">
         <span></span>
         <v-btn
-            color="primary"
-            rounded
-            outlined
-            class="text-capitalize px-3"
-            @click="buynow"
+          color="primary"
+          rounded
+          outlined
+          class="text-capitalize px-3"
+          @click="buynow(product)"
         >
-            Buy Now
+          Buy Now
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -65,8 +65,9 @@ export default {
         query: { data }
       })
     },
-    buynow () {
+    buynow (data) {
       console.log('buy now')
+      this.$store.dispatch('addToCart', data)
     },
     decodeHtml (str) {
       const map =

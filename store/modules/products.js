@@ -1,6 +1,7 @@
 const state = () => ({
   products: [],
-  latestProducts: []
+  latestProducts: [],
+  myCart: []
 })
 
 const getters = {
@@ -9,6 +10,9 @@ const getters = {
   },
   getLatestProducts (state) {
     return state.latestProducts
+  },
+  myCart (state) {
+    return state.myCart
   }
 }
 
@@ -18,6 +22,15 @@ const mutations = {
   },
   GET_LATESTPRODUCTS (state, payload) {
     state.latestProducts = payload
+  },
+  MY_CART (state, payload) {
+    state.myCart.unshift(payload)
+  },
+  REMOVE_TO_CART (state, payload) {
+    const index = state.myCart.findIndex(item => item.product_id === payload)
+    if (index !== -1) {
+      state.myCart.splice(index, 1)
+    }
   }
 }
 
@@ -41,6 +54,12 @@ const actions = {
       console.log(error)
     }
     context.commit('GET_LATESTPRODUCTS', products)
+  },
+  addToCart (context, payload) {
+    context.commit('MY_CART', payload)
+  },
+  removeToCart (context, payload) {
+    context.commit('REMOVE_TO_CART', payload)
   }
 }
 
