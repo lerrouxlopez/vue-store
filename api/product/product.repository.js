@@ -10,5 +10,10 @@ export default $axios => ({
     const data = new FormData()
     data.append('limit', 5)
     return $axios.$post(`${API_URL}/getLatestProducts`, data)
+  },
+  GetProduct (id) {
+    const data = new FormData()
+    data.append('product_id', id)
+    return $axios.$post(`${API_URL}/getProduct`, data)
   }
 })

@@ -61,8 +61,9 @@ export default {
   methods: {
     details (data) {
       this.$router.push({
-        path: '/products/' + data.name,
-        query: { data }
+        path: '/products/' + data.product_id
+        // params: { id: data.product_id }
+        // query: { data }
       })
     },
     buynow (data) {

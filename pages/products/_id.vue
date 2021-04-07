@@ -1,6 +1,6 @@
 <template>
   <div class="store-container">
-    <ProductDetails />
+    <ProductDetails :details="product"/>
   </div>
 </template>
 
@@ -11,7 +11,33 @@ export default {
     ProductDetails
   },
   data () {
-    return {}
+    return {
+      product: []
+    }
+  },
+  methods: {
+    async getData (id) {
+      try {
+        this.product = await this.$productRepository.GetProduct(id)
+        this.product.description = this.decodeHtml(this.product.description)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    decodeHtml (str) {
+      const map =
+        {
+          '&amp;': '&',
+          '&lt;': '<',
+          '&gt;': '>',
+          '&quot;': '"',
+          '&#039;': "'"
+        }
+      return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function (m) { return map[m] })
+    }
+  },
+  mounted () {
+    this.getData(this.$route.params.id)
   }
 }
 </script>

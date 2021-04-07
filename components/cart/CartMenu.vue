@@ -25,34 +25,34 @@
         </v-btn>
       </template>
         <v-card width="400">
-          <v-card-text class="px-0">
+          <v-card-text class="px-0 pb-0">
             <div>
               <v-simple-table dense class="caption">
                 <template v-slot:default>
                   <thead>
                     <tr>
                     <th class="text-left"></th>
-                    <th class="text-left">
+                    <th class="text-left primary--text">
                         Quantity
                     </th>
-                    <th class="text-left">
+                    <th class="text-left primary--text">
                         Price
                     </th>
-                    <th class="text-left">
+                    <th class="text-left primary--text">
                         Total
                     </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr v-for="item in filterCart" :key="item.id">
-                      <td class="font-weight-bold">{{ item.name }}</td>
-                      <td>
-                        <v-btn icon x-small @click="removeQuantity(item.product_id)">
-                          <v-icon>mdi-minus</v-icon>
+                      <td class="font-weight-bold text-truncate">{{ item.name }}</td>
+                      <td class="px-0 d-flex justify-space-between align-center">
+                        <v-btn icon outlined x-small @click="removeQuantity(item.product_id)" class="px-0">
+                          <v-icon x-small class="px-0">mdi-minus</v-icon>
                         </v-btn>
                         {{ item.quantity }}
-                        <v-btn icon x-small @click="addQuantity(item)">
-                          <v-icon>mdi-plus</v-icon>
+                        <v-btn icon outlined x-small @click="addQuantity(item)" class="">
+                          <v-icon x-small class="px-0">mdi-plus</v-icon>
                         </v-btn>
                       </td>
                       <td class="text-right">{{ parseFloat(item.price).toFixed(2) }}</td>
