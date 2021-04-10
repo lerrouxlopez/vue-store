@@ -196,6 +196,7 @@ export default {
   props: ['details'],
   data () {
     return {
+      panel: '',
       comparison: [
         {
           package: 'Content 1',

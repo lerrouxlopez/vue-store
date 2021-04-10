@@ -28,7 +28,6 @@
             class="text-capitalize"
             color="primary"
             @click="details = !details"
-            disabled
           >View Details</v-btn>
           <v-btn
             small
