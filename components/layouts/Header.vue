@@ -32,7 +32,22 @@
           class="shrink mr-5 mt-1 hidden-sm-and-down"
         >
         </v-text-field>
-        <cart-menu :cart="myCart"></cart-menu>
+        <v-btn
+          icon
+          :disabled="myCart.length == 0"
+          @click="$router.push('/cart')"
+        >
+          <v-badge
+            color="red accent-4"
+            bordered
+            :content="myCart.length"
+            overlap
+            :value="myCart.length > 0 ? true : false"
+            >
+            <v-icon>mdi-cart-outline</v-icon>
+          </v-badge>
+        </v-btn>
+        <!-- <cart-menu :cart="myCart"></cart-menu> -->
         <v-btn
           icon
         >
@@ -106,12 +121,12 @@
 </template>
 
 <script>
-import { CartMenu } from '@/components/cart'
+// import { CartMenu } from '@/components/cart'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    CartMenu
+    // CartMenu
   },
   data () {
     return {

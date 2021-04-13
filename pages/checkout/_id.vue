@@ -5,7 +5,7 @@
         <CheckoutContent />
       </v-col>
       <v-col cols="4">
-        <CheckoutSidebar />
+        <CheckoutSidebar :mycart="myCart"/>
       </v-col>
     </v-row>
   </div>
@@ -13,6 +13,7 @@
 
 <script>
 import { CheckoutContent, CheckoutSidebar } from '@/components/checkout'
+import { mapGetters } from 'vuex'
 
 export default {
   middleware: 'auth',
@@ -22,6 +23,9 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    ...mapGetters(['myCart'])
   }
 }
 </script>

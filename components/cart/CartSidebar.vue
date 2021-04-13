@@ -13,6 +13,7 @@
           class="text-capitalize"
           block
           @click="$router.push('/checkout')"
+          :disabled="myCart.length === 0"
         >
           Proceed to Checkout
         </v-btn>
