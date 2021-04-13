@@ -19,7 +19,7 @@
         >
           <div class="text-center">
             <img src="/img/market_idle.svg" class="pb-0"/>
-            <div class="caption py-0">Store</div>
+            <div class="caption py-0 hidden-sm-and-down">Store</div>
           </div>
         </v-btn>
         <v-spacer />
@@ -29,7 +29,7 @@
           hide-details
           label="Search"
           prepend-inner-icon="mdi-magnify"
-          class="shrink mr-5 mt-1"
+          class="shrink mr-5 mt-1 hidden-sm-and-down"
         >
         </v-text-field>
         <cart-menu :cart="myCart"></cart-menu>
@@ -57,7 +57,7 @@
               v-on="on"
             >
               <v-avatar size="40" color="primary"></v-avatar>
-              <span class="font-weight-bold px-2">{{ $auth.user.name }}</span>
+              <span class="font-weight-bold px-2 hidden-sm-and-down">{{ $auth.user.name }}</span>
             </v-btn>
           </template>
           <v-list>
@@ -73,7 +73,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <div v-else class="px-3 pt-1">
+        <div v-else class="px-3 pt-1 hidden-sm-and-down">
           <v-btn
               color="primary"
               rounded
@@ -85,6 +85,22 @@
           </v-btn>
         </div>
       </div>
+      <v-menu v-if="$vuetify.breakpoint.smAndDown">
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-if="!$auth.loggedIn" to="/login">
+            <v-list-item-title>Login</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Search</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
   </div>
 </template>

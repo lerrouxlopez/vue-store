@@ -93,7 +93,7 @@ export default {
       }
     },
     redirect: {
-      login: '/',
+      login: '/login',
       logout: '/'
     }
   },

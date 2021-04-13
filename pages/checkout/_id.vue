@@ -15,6 +15,7 @@
 import { CheckoutContent, CheckoutSidebar } from '@/components/checkout'
 
 export default {
+  middleware: 'auth',
   components: {
     CheckoutContent,
     CheckoutSidebar

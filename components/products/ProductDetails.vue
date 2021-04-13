@@ -17,7 +17,7 @@
           <v-card-text class="d-flex justify-space-between">
             <v-chip-group column>
               <v-chip
-                v-for="item in details.tag"
+                v-for="item in tags"
                 :key="item"
                 color="secondary_background"
                 class="secondary--text"
@@ -27,7 +27,13 @@
             </v-chip-group>
             <span class="caption font-weight-bold px-3">{{ details.reviews }} Reviews</span>
           </v-card-text>
-          <v-img :src="`https://dev.ibial.com/store/image/${details.image}`" width="250" class="mx-auto" />
+          <v-img
+            :src="productImage"
+            width="250"
+            class="mx-auto"
+            @error="imgError"
+            lazy-src="/img/default.jpg"
+          />
           <v-card-subtitle>
             <div class="px-3">
               <div>
@@ -197,6 +203,7 @@ export default {
   data () {
     return {
       panel: '',
+      defaultImg: '/img/default.jpg',
       comparison: [
         {
           package: 'Content 1',
@@ -227,21 +234,32 @@ export default {
       const str = this.decodeHtml(this.details.description)
       const regex = /<\/?[^>]+(>|$)/g
       return str.replace(regex, '')
-    }
-    /* panel () {
-      let data = 0
-      for (let index = 0; index < this.details.length; index++) {
-        if (this.details[index].meta_title === this.details.meta_title) {
-          data = index
-        }
+    },
+    tags () {
+      const str = this.details.tag
+      if (str) {
+        return str.replace(/'/ig, '').split(', ')
+      } else {
+        return str
       }
-      console.log(data)
-      return data
-    } */
+    },
+    productImage () {
+      return 'https://dev.ibial.com/store/image/' + this.details.image
+      /* const img = new Image()
+      img.src = 'https://dev.ibial.com/store/image/' + this.details.image
+      if (img.height !== 0) {
+        return img.src
+      } else {
+        return '/img/default.jpg'
+      } */
+    }
   },
   methods: {
     addToCart (data) {
       this.$store.dispatch('addToCart', data)
+    },
+    imgError () {
+      this.src = this.defaultImg
     }
   }
 }

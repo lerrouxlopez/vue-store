@@ -7,16 +7,21 @@
     >
       <div class="product-item" @click="details(product)">
         <div class="product_img mx-auto pt-3">
+          <v-skeleton-loader v-if="!productImage" class="mx-auto" type="image"></v-skeleton-loader>
           <v-img
+            v-else
             contain
-            :src="`https://dev.ibial.com/store/image/${product.image}`"
+            :src="productImage"
+            lazy-src="/img/default.jpg"
             max-width="200"
             max-height="200"
             class="mx-auto pt-3"
           ></v-img>
         </div>
-        <v-card-title>{{ product.name }}</v-card-title>
-        <v-card-subtitle class="font-weight-bold">{{ product.meta_title }}</v-card-subtitle>
+        <v-card-title class="text-truncate">
+          {{ product.name }}
+        </v-card-title>
+        <v-card-subtitle class="font-weight-bold text-truncate">{{ product.meta_title }}</v-card-subtitle>
         <v-card-text>
           <p class="product_desc mb-0">{{ strippedContent.length > 165 ? strippedContent.substring(1, 165) + '...' : strippedContent }}</p>
         </v-card-text>
@@ -56,6 +61,16 @@ export default {
       return str.replace(regex, '')
 
       // return this.decodeHtml(this.product.description)
+    },
+    productImage () {
+      return 'https://dev.ibial.com/store/image/' + this.product.image
+      /* const img = new Image()
+      img.src = 'https://dev.ibial.com/store/image/' + this.product.image
+      if (img.height !== 0) {
+        return img.src
+      } else {
+        return '/img/default.jpg'
+      } */
     }
   },
   methods: {

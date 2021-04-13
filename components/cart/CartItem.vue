@@ -39,10 +39,11 @@
       </div>
     </div>
     <div v-if="details" class="px-6 caption pb-6">
-        <p>
+      <p v-html="decodeHtml(mycart.description)"></p>
+        <!-- <p>
         Designers Ads Generator was created with the intention of helping marketers generate ads faster. A small tool for advertisers and marketers looking to find inspiration for their social media posts.
         </p>
-        <!-- <ul>
+        <ul>
         <li><v-icon color="primary" small>mdi-check</v-icon> generate Ads</li>
         <li><v-icon color="primary" small>mdi-check</v-icon> Unlimited access to all template</li>
         </ul>
@@ -78,6 +79,17 @@ export default {
   methods: {
     remove (data) {
       this.$store.dispatch('removeToCart', data)
+    },
+    decodeHtml (str) {
+      const map =
+        {
+          '&amp;': '&',
+          '&lt;': '<',
+          '&gt;': '>',
+          '&quot;': '"',
+          '&#039;': "'"
+        }
+      return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function (m) { return map[m] })
     }
   }
 }

@@ -2,7 +2,7 @@
   <div>
     <div class="py-3 font-weight-bold"><h3>iBial Products</h3></div>
     <v-row>
-      <v-col cols="4" v-for="product in getProducts" :key="product.id">
+      <v-col cols="12" sm="4" v-for="product in getProducts" :key="product.id">
         <product-item :product="product"></product-item>
       </v-col>
     </v-row>
