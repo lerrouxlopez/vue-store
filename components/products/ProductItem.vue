@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-card
-      class="p-3 d-flex flex-column pb-3"
+      class="p-3 d-flex flex-column pb-3 product__panel"
       height="500"
       max-width="350"
+      flat
     >
       <div class="product-item" @click="details(product)">
         <div class="product_img mx-auto pt-3">
@@ -21,7 +22,6 @@
         <v-card-title class="text-truncate">
           {{ product.name }}
         </v-card-title>
-        <v-card-subtitle class="font-weight-bold text-truncate">{{ product.meta_title }}</v-card-subtitle>
         <v-card-text>
           <p class="product_desc mb-0">{{ strippedContent.length > 165 ? strippedContent.substring(1, 165) + '...' : strippedContent }}</p>
         </v-card-text>
@@ -63,7 +63,7 @@ export default {
       // return this.decodeHtml(this.product.description)
     },
     productImage () {
-      return 'https://dev.ibial.com/store/image/' + this.product.image
+      return 'https://ibial.com/store/image/' + this.product.image
       /* const img = new Image()
       img.src = 'https://dev.ibial.com/store/image/' + this.product.image
       if (img.height !== 0) {
@@ -111,5 +111,8 @@ export default {
 .product_img {
   width: 200px;
   height: 200px;
+}
+.product__panel {
+  box-shadow: 0px 4px 10px rgba(189, 189, 189, 0.25) !important;
 }
 </style>

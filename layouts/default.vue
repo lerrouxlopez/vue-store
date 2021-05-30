@@ -1,21 +1,20 @@
 <template>
   <v-app>
     <Header />
-    <v-main>
+    <v-main class="main_panel">
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer
+    <!-- <v-footer
       :absolute="!fixed"
       app
       class="footer-content"
     >
       <div class="container">
-        <!--<span>&copy; {{ new Date().getFullYear() }}</span>-->
         <Footer />
       </div>
-    </v-footer>
+    </v-footer >-->
     <v-snackbar v-model="notification" :color="mscolor" right top>
       {{ message }}
       <template v-slot:action="{ attrs }">
@@ -28,13 +27,13 @@
 </template>
 
 <script>
-import { Header, Footer } from '@/components/layouts'
+import { Header } from '@/components/layouts'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    Header,
-    Footer
+    Header
+    // Footer
   },
   data () {
     return {
@@ -83,5 +82,8 @@ export default {
 .footer-content {
   background-color: #303030 !important;
   color: #ffffff;
+}
+.main_panel {
+  background: #f7f7f7;
 }
 </style>

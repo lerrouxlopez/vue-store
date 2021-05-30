@@ -244,7 +244,7 @@ export default {
       }
     },
     productImage () {
-      return 'https://dev.ibial.com/store/image/' + this.details.image
+      return 'https://ibial.com/store/image/' + this.details.image
       /* const img = new Image()
       img.src = 'https://dev.ibial.com/store/image/' + this.details.image
       if (img.height !== 0) {

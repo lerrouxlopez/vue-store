@@ -4,6 +4,7 @@
       fixed
       app
       flat
+      class="header__panel"
     >
       <div class="container d-flex">
         <v-btn
@@ -71,7 +72,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              <v-avatar size="40" color="primary"></v-avatar>
+              <v-avatar size="40" color="white"></v-avatar>
               <span class="font-weight-bold px-2 hidden-sm-and-down">{{ $auth.user.name }}</span>
             </v-btn>
           </template>
@@ -159,5 +160,9 @@ export default {
 <style scoped>
 .v-btn::before {
   background-color: transparent;
+}
+.header__panel {
+  background-color: #FFFFFF !important;
+  box-shadow: 1px 1px 10px rgba(160, 168, 176, 0.25) !important;
 }
 </style>

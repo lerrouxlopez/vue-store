@@ -6,7 +6,12 @@
       </div> -->
         <div>
           <v-avatar width="100" height="80" tile>
-            <v-img contain :src="`https://dev.ibial.com/store/image/${mycart.image}`" width="80" />
+            <v-img
+              contain
+              :src="productImage"
+              width="80"
+              lazy-src="/img/default.jpg"
+            />
           </v-avatar>
         </div>
         <div class="px-3 container pt-0">
@@ -74,6 +79,11 @@ export default {
   data () {
     return {
       details: false
+    }
+  },
+  computed: {
+    productImage () {
+      return 'https://ibial.com/store/image/' + this.mycart.image
     }
   },
   methods: {

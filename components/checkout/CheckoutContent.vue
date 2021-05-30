@@ -16,7 +16,11 @@
         <v-col class="py-0">
           <v-radio-group v-model="payment" hide-details class="mt-0">
             <v-radio label="New payment card"></v-radio>
-            <v-radio label=""></v-radio>
+            <v-radio>
+              <template #label>
+                 <img src="/img/paypal_logo.png" />
+              </template>
+            </v-radio>
           </v-radio-group>
         </v-col>
       </v-row>
