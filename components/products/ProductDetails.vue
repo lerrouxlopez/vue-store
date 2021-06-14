@@ -179,7 +179,7 @@
                 color="primary"
                 class="text-capitalize"
                 :loading="loading"
-                :disabled="!details.name"
+                :disabled="!details.name || !$auth.loggedIn"
                 block
                 @click="addToCart(details)"
               >
