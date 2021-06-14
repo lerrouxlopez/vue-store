@@ -35,15 +35,15 @@
         </v-text-field>
         <v-btn
           icon
-          :disabled="myCart.length == 0"
+          :disabled="Cart.length == 0"
           @click="$router.push('/cart')"
         >
           <v-badge
             color="red accent-4"
             bordered
-            :content="myCart.length"
+            :content="Cart.length"
             overlap
-            :value="myCart.length > 0 ? true : false"
+            :value="Cart.length > 0 ? true : false"
             >
             <v-icon>mdi-cart-outline</v-icon>
           </v-badge>
@@ -137,15 +137,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['myCart'])
+    ...mapGetters(['Cart'])
   },
   methods: {
     async logout () {
       try {
         await this.$auth.logout()
         const notif = {
+          type: 'account',
           display: true,
-          type: 'primary',
+          color: 'primary',
           message: 'Logout Successfully.'
         }
         this.$store.dispatch('addNotifications', notif)

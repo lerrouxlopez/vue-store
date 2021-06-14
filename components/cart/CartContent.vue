@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title class="font-weight-bold">Your Cart</v-card-title>
       <v-card-text>
-        <CartItem v-for="(item, i) in myCart" :key="i" :mycart="item" />
+        <CartItem v-for="(item, i) in Cart" :key="i" :mycart="item" />
       </v-card-text>
     </v-card>
     <div class="pa-3">
@@ -29,7 +29,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['myCart'])
+    ...mapGetters(['Cart'])
   }
 }
 </script>

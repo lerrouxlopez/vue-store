@@ -13,7 +13,7 @@
           class="text-capitalize"
           block
           @click="$router.push('/checkout')"
-          :disabled="myCart.length === 0"
+          :disabled="Cart.length === 0"
         >
           Proceed to Checkout
         </v-btn>
@@ -42,10 +42,10 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['myCart']),
+    ...mapGetters(['Cart']),
     totalPrice () {
       let total = 0
-      this.myCart.forEach((element) => {
+      this.Cart.forEach((element) => {
         total = total + parseFloat(element.price)
       })
       return total

@@ -66,13 +66,22 @@ export default {
   },
   watch: {
     getNotifications () {
-      this.notification = this.getNotifications.display
-      this.message = this.getNotifications.message
-      this.mscolor = this.getNotifications.type
+      if (this.getNotifications.type === 'account') {
+        this.notification = this.getNotifications.display
+        this.message = this.getNotifications.message
+        this.mscolor = this.getNotifications.color
+      }
     }
   },
   methods: {},
   mounted () {
+    if (this.$auth.loggedIn) {
+      const params = {
+        api_id: this.$auth.user.id,
+        customer_id: this.$auth.user.id
+      }
+      this.$store.dispatch('getCartProducts', params)
+    }
     this.$store.dispatch('getProducts')
   }
 }

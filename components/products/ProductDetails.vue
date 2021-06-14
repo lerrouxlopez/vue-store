@@ -39,10 +39,10 @@
               <div>
                 <h3>Description</h3>
               </div>
-              <p class="pt-3" v-html="details.description"></p>
-              <ul class="ml-6">
+              <div class="pt-3" v-html="details.description"></div>
+              <!-- <ul class="ml-6">
                 <li v-for="item in details.features" :key="item">{{ item }}</li>
-              </ul>
+              </ul> -->
               <div class="py-6">
                 <h3>Pricing comparison</h3>
               </div>
@@ -178,6 +178,8 @@
                 rounded
                 color="primary"
                 class="text-capitalize"
+                :loading="loading"
+                :disabled="!details.name"
                 block
                 @click="addToCart(details)"
               >
@@ -193,6 +195,8 @@
 
 <script>
 import { ProductDescription, ProductReviews, MoreOfferings } from '@/components/products'
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     ProductDescription,
@@ -204,6 +208,7 @@ export default {
     return {
       panel: '',
       defaultImg: '/img/default.jpg',
+      loading: false,
       comparison: [
         {
           package: 'Content 1',
@@ -227,6 +232,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['getNotifications']),
     filterDetails () {
       return this.details.details
     },
@@ -254,9 +260,27 @@ export default {
       } */
     }
   },
+  watch: {
+    getNotifications () {
+      if (this.getNotifications.type === 'cart') {
+        this.loading = false
+      }
+    }
+  },
   methods: {
-    addToCart (data) {
-      this.$store.dispatch('addToCart', data)
+    addToCart (details) {
+      this.loading = true
+      const date = new Date()
+      const params = {
+        product_id: details.product_id,
+        quantity: 1,
+        option: '',
+        api_id: this.$auth.user.id,
+        customer_id: this.$auth.user.id
+      }
+      console.log(date.getTime())
+      console.log(params)
+      this.$store.dispatch('addToCart', params)
     },
     imgError () {
       this.src = this.defaultImg

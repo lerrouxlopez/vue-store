@@ -9,6 +9,9 @@ const getters = {
 }
 
 const mutations = {
+  CART_ITEMS (state, payload) {
+    state.myCart = payload
+  },
   MY_CART (state, payload) {
     state.myCart.unshift(payload)
   },
@@ -21,15 +24,29 @@ const mutations = {
 }
 
 const actions = {
+  async getCartProducts (context, payload) {
+    let cart = []
+    try {
+      cart = await this.$cartRepository.GetCartProducts(payload)
+      console.log(cart)
+      context.commit('CART_ITEMS', cart)
+    } catch (error) {
+      console.log(error)
+    }
+  },
   async addToCart (context, payload) {
     let cart = []
     try {
       cart = await this.$cartRepository.AddtoCart(payload)
-      // console.log(products)
+      console.log(cart)
+      context.commit('MY_CART', cart)
+      const notif = {
+        type: 'cart'
+      }
+      context.dispatch('addNotifications', notif)
     } catch (error) {
       console.log(error)
     }
-    context.commit('MY_CART', cart)
   },
   async removeToCart (context, payload) {
     try {

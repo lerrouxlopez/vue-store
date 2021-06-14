@@ -134,8 +134,9 @@ export default {
       try {
         await this.$accountRepository.register(details)
         const notif = {
+          type: 'account',
           display: true,
-          type: 'primary',
+          color: 'primary',
           message: 'Successfully registered, Loggin in..'
         }
         this.$store.dispatch('addNotifications', notif)
@@ -145,8 +146,9 @@ export default {
         console.log(error)
         this.loading = false
         const notif = {
+          type: 'account',
           display: true,
-          type: 'error',
+          color: 'error',
           message: 'There was an issue signing up. Please try again.'
         }
         this.$store.dispatch('addNotifications', notif)

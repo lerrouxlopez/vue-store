@@ -100,17 +100,24 @@ export default {
           data: details
         })
         const notif = {
+          type: 'account',
           display: true,
-          type: 'primary',
+          color: 'primary',
           message: 'Thank you for signing in..'
         }
         this.$store.dispatch('addNotifications', notif)
         this.loading = false
+        const params = {
+          api_id: this.$auth.user.id,
+          customer_id: this.$auth.user.id
+        }
+        this.$store.dispatch('getCartProducts', params)
       } catch (error) {
         console.log(error)
         const notif = {
+          type: 'account',
           display: true,
-          type: 'error',
+          color: 'error',
           message: 'There was an issue signing in. Please try again.'
         }
         this.$store.dispatch('addNotifications', notif)
