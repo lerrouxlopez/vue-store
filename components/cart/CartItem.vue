@@ -17,7 +17,7 @@
         <div class="px-3 container pt-0">
           <div class="d-flex justify-space-between">
             <div class="font-weight-bold">{{ mycart.name }}</div>
-            <div class="font-weight-bold">${{ parseFloat(mycart.price).toFixed(2) }}</div>
+            <div class="font-weight-bold">${{ parseFloat(mycart.price).toFixed(2) }} x {{ mycart.quantity }}</div>
           </div>
         <div class="d-flex justify-space-between caption">
           <div class="">Basic Package</div>

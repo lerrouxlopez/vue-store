@@ -46,7 +46,7 @@ export default {
     totalPrice () {
       let total = 0
       this.Cart.forEach((element) => {
-        total = total + parseFloat(element.price)
+        total = total + parseFloat(element.total)
       })
       return total
     }
