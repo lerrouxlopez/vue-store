@@ -14,6 +14,7 @@ export default $axios => ({
   },
   RemovetoCart (params) {
     const data = new FormData()
+    data.append('cart_id', params.cart_id)
     data.append('api_id', params.api_id)
     data.append('customer_id', params.customer_id)
     return $axios.$post(`${API_URL}/remove`, data)

@@ -30,6 +30,13 @@ export default {
   },
   computed: {
     ...mapGetters(['Cart'])
+  },
+  created () {
+    const params = {
+      api_id: this.$auth.user.id,
+      customer_id: this.$auth.user.id
+    }
+    this.$store.dispatch('getCartProducts', params)
   }
 }
 </script>

@@ -49,9 +49,10 @@ const actions = {
     }
   },
   async removeToCart (context, payload) {
+    let cart = []
     try {
-      await this.$cartRepository.RemovetoCart(payload)
-      // console.log(products)
+      cart = await this.$cartRepository.RemovetoCart(payload)
+      console.log(cart)
     } catch (error) {
       console.log(error)
     }

@@ -33,12 +33,13 @@
             class="text-capitalize"
             color="primary"
             @click="details = !details"
+            :disabled="!details"
           >View Details</v-btn>
           <v-btn
             small
             outlined
             class="text-capitalize"
-            @click="remove(mycart.product_id)"
+            @click="remove(mycart)"
           >Remove</v-btn>
         </div>
       </div>
@@ -88,6 +89,13 @@ export default {
   },
   methods: {
     remove (data) {
+      console.log(data)
+      const params = {
+        cart_id: data.cart_id,
+        api_id: this.$auth.user.id,
+        customer_id: this.$auth.user.id
+      }
+      console.log(params)
       this.$store.dispatch('removeToCart', data)
     },
     decodeHtml (str) {

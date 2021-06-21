@@ -20,6 +20,7 @@ export default {
       try {
         this.product = await this.$productRepository.GetProduct(id)
         this.product.description = this.decodeHtml(this.product.description)
+        console.log(this.product)
       } catch (error) {
         console.log(error)
       }

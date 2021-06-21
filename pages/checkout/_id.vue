@@ -5,7 +5,7 @@
         <CheckoutContent />
       </v-col>
       <v-col cols="4">
-        <CheckoutSidebar :mycart="myCart"/>
+        <CheckoutSidebar :mycart="Cart"/>
       </v-col>
     </v-row>
   </div>
@@ -25,7 +25,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters(['myCart'])
+    ...mapGetters(['Cart'])
   }
 }
 </script>
