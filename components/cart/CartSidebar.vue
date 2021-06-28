@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card flat class="product__panel pa-3">
     <v-card-title><h5>Total</h5></v-card-title>
     <v-card-title class="pt-0 pb-2">
       <div class="d-flex">
@@ -8,6 +8,7 @@
       </div>
       <div class="d-flex pt-6 container">
         <v-btn
+          elevation="0"
           rounded
           color="primary"
           class="text-capitalize"

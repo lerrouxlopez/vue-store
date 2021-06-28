@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card flat class="product__panel pa-3">
       <v-card-title class="font-weight-bold">Your Cart</v-card-title>
       <v-card-text>
         <CartItem v-for="(item, i) in Cart" :key="i" :mycart="item" />

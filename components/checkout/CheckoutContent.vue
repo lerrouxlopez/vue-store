@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pb-6">
+  <v-card class="pa-3 product__panel" flat>
     <v-card-title class="font-weight-bold">Checkout</v-card-title>
     <div class="px-6">
       <v-row>

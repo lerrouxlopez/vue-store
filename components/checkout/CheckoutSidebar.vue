@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card flat class="product__panel pa-3">
       <v-card-title><h5>Summary</h5></v-card-title>
       <v-card-subtitle>
         <div v-for="item in filterCart" :key="item.id" class="pt-3 d-flex justify-space-between">
