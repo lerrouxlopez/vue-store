@@ -28,6 +28,7 @@
           outlined
           dense
           hide-details
+          background-color="#F2F2F2"
           label="Search"
           prepend-inner-icon="mdi-magnify"
           class="shrink mr-5 mt-1 hidden-sm-and-down"

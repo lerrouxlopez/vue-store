@@ -2,7 +2,7 @@
   <div class="mt-12 py-6">
     <v-row>
       <v-col cols="8">
-        <v-card>
+        <v-card flat class="product__panel">
           <div v-if="!details.name">
             <v-row>
               <v-col>
@@ -154,7 +154,7 @@
         </div>
       </v-col>
       <v-col cols="4">
-        <v-card>
+        <v-card flat class="product__panel">
           <v-card-title><span class="mx-auto">Plans</span></v-card-title>
           <v-card-subtitle class="d-flex justify-center">
             <v-btn text class="caption primary--text text-capitalize">

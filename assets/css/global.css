@@ -10,3 +10,7 @@
 #app td {
   font-family: 'Poppins', sans-serif !important;
 }
+
+.product__panel {
+  box-shadow: 0px 4px 10px rgba(189, 189, 189, 0.25) !important;
+}

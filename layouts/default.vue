@@ -96,3 +96,9 @@ export default {
   background: #f7f7f7;
 }
 </style>
+
+<style>
+.product__panel {
+  box-shadow: 0px 4px 10px rgba(189, 189, 189, 0.25) !important;
+}
+</style>
