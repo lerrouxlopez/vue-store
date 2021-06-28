@@ -1,5 +1,5 @@
 <template>
-  <div class="cart-container">
+  <div class="cart-container mt-12 py-6">
     <v-row>
       <v-col cols="8">
         <CartContent />

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-12 py-6">
     <v-row>
       <v-col cols="8">
         <v-card>

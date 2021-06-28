@@ -80,7 +80,7 @@
             <v-list-item @click="$router.push('/purchases')">
               <v-list-item-title>Purchases</v-list-item-title>
             </v-list-item>
-            <v-list-item @click="$router.push('/account')">
+            <v-list-item >
               <v-list-item-title>Account</v-list-item-title>
             </v-list-item>
             <v-divider></v-divider>
