@@ -39,7 +39,7 @@ const actions = {
     let products = []
     try {
       products = await this.$productRepository.GetProducts()
-      // console.log(products)
+      console.log(products)
     } catch (error) {
       console.log(error)
     }

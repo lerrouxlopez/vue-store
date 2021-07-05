@@ -51,6 +51,7 @@
           rounded
           color="primary"
           class="text-capitalize px-6"
+          elevation="0"
         >
           Submit
         </v-btn>
