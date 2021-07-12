@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-6">
     <v-card class="mb-6 product__panel" flat>
       <v-card-text>
         <div class="d-flex justify-space-between">

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <v-card class="px-12 pb-12 pt-6 mx-auto" max-width="500">
+      <v-card class="px-12 pb-12 pt-6 mx-auto product__panel" max-width="500" flat>
         <div class="px-6 mx-6">
           <div class="text-center">
             <h1 class="font-weight-bold">

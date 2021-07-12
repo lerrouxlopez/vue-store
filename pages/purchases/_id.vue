@@ -1,6 +1,6 @@
 <template>
   <div class="purchase-container mt-12 py-6">
-    <h1>Purchases</h1>
+    <h1 class="mb-6">Purchases</h1>
     <PurchaseItem v-for="(item, i) in data" :key="i" :details="item"/>
   </div>
 </template>

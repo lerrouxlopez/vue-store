@@ -1,4 +1,4 @@
-const API_URL = 'https://ibial.com/store/index.php?route=api/product'
+const API_URL = 'https://dev.ibial.com/store/index.php?route=api/product'
 
 // const API_URL = 'http://localhost/opencart/upload/index.php?route=api/product'
 

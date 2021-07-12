@@ -1,5 +1,5 @@
 <template>
-  <div class="purchase-container">
+  <div class="purchase-container mt-12">
     <div>
       <div class="mb-3">
         <v-btn text class="text-capitalize" @click="$router.push('/purchases')">
@@ -8,7 +8,7 @@
         </v-btn>
       </div>
       <div>
-        <v-card class="mb-3">
+        <v-card class="pa-6 mt-3 product__panel" flat>
           <v-card-title class="d-flex justify-space-between">
             <div>
               Learn Adobe XD- Intermediate Level
@@ -37,7 +37,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card class="mb-3">
+        <v-card class="px-6 mt-6 product__panel" flat>
           <v-card-title>Payment History</v-card-title>
           <v-card-text>
             <div class="caption">
@@ -62,7 +62,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card class="mb-3">
+        <v-card class="px-6 mt-6 pb-6 product__panel" flat>
           <v-card-title>Your product rating & review</v-card-title>
           <v-card-text>
             <v-btn
@@ -74,7 +74,7 @@
             >Rate this product</v-btn>
           </v-card-text>
         </v-card>
-        <div class="py-3">
+        <div class="py-3 mt-6">
           <v-row>
             <v-col cols="1" class="d-flex justify-center px-0">
               <v-avatar color="primary" width="50" class="ml-3"></v-avatar>
