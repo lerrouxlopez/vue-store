@@ -21,7 +21,7 @@
             </div>
           </v-card-title>
           <v-card-text>
-            <div class="caption">
+            <div class="body-2">
               <div class="d-flex">
                 <div>Order ID: </div><div class="pl-2">#000000a</div>
               </div>
@@ -37,10 +37,10 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card class="px-6 mt-6 product__panel" flat>
+        <v-card class="pa-6 mt-6 product__panel" flat>
           <v-card-title>Payment History</v-card-title>
           <v-card-text>
-            <div class="caption">
+            <div class="body-2">
               <v-row>
                 <v-col cols="2">Payment ID</v-col>
                 <v-col cols="2">Payment Date</v-col>
@@ -62,7 +62,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card class="px-6 mt-6 pb-6 product__panel" flat>
+        <v-card class="px-6 mt-6 py-6 product__panel" flat>
           <v-card-title>Your product rating & review</v-card-title>
           <v-card-text>
             <v-btn
@@ -80,10 +80,10 @@
               <v-avatar color="primary" width="50" class="ml-3"></v-avatar>
             </v-col>
             <v-col>
-              <div class="caption font-weight-bold">User Name</div>
+              <div class="body-2 font-weight-bold">User Name</div>
               <div class="caption medium_gray--text">Feb. 14, 2021</div>
               <div>😃</div>
-              <p class="caption">Saperet euripidis an cum. Pro ea quas epicurei, ad eam iriure albucius constituam. Eum cu cetero ornatus, cum no nobis interpretaris concludaturque, an bonorum eruditi electram usu. Eos mazim tritani imperdiet no, percipit gloriatur ne his.</p>
+              <p class="body-2">Saperet euripidis an cum. Pro ea quas epicurei, ad eam iriure albucius constituam. Eum cu cetero ornatus, cum no nobis interpretaris concludaturque, an bonorum eruditi electram usu. Eos mazim tritani imperdiet no, percipit gloriatur ne his.</p>
             </v-col>
           </v-row>
         </div>
@@ -93,20 +93,20 @@
               <v-avatar color="primary" width="50" class="ml-3"></v-avatar>
             </v-col>
             <v-col>
-              <div class="caption font-weight-bold">User Name</div>
+              <div class="body-2 font-weight-bold">User Name</div>
               <div class="caption medium_gray--text">Feb. 14, 2021</div>
               <div>😃</div>
-              <p class="caption">Saperet euripidis an cum. Pro ea quas epicurei, ad eam iriure albucius constituam. Eum cu cetero ornatus, cum no nobis interpretaris concludaturque, an bonorum eruditi electram usu. Eos mazim tritani imperdiet no, percipit gloriatur ne his.</p>
+              <p class="body-2">Saperet euripidis an cum. Pro ea quas epicurei, ad eam iriure albucius constituam. Eum cu cetero ornatus, cum no nobis interpretaris concludaturque, an bonorum eruditi electram usu. Eos mazim tritani imperdiet no, percipit gloriatur ne his.</p>
               <div class="py-3">
                 <v-row>
                   <v-col cols="1" class="d-flex justify-center px-0">
                     <v-avatar color="primary" width="50" class="ml-3"></v-avatar>
                   </v-col>
                   <v-col>
-                    <div class="caption font-weight-bold">Response from <span class="primary--text">Seller Name</span></div>
+                    <div class="body-2 font-weight-bold">Response from <span class="primary--text">Seller Name</span></div>
                     <div class="caption medium_gray--text">Feb. 18, 2021</div>
                     <div>😃</div>
-                    <p class="caption">Thank you for your review bruh.</p>
+                    <p class="body-2">Thank you for your review bruh.</p>
                   </v-col>
                 </v-row>
               </div>
