@@ -16,9 +16,10 @@
           :key="n"
         >
           <v-card
-            class="ma-4"
+            class="ma-4 product__panel"
             height="365"
             width="270"
+            flat
           >
             <v-avatar
               color="primary"

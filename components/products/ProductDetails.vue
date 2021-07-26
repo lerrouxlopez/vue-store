@@ -148,7 +148,7 @@
             </v-card-subtitle>
           </div>
         </v-card>
-        <div class="pa-3">
+        <div class="pa-3 mt-6">
           <h4>More offerings from Company C</h4>
           <MoreOfferings />
         </div>
