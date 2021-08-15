@@ -1,9 +1,6 @@
 <template>
   <div class="store-container">
     <v-row>
-      <!--<v-col cols="3">
-        <Sidebar />
-      </v-col>-->
       <v-col>
         <StoreContent />
       </v-col>
@@ -16,6 +13,12 @@ import { StoreContent } from '@/components/layouts'
 export default {
   components: {
     StoreContent
+  },
+  created () {
+    console.log(this.$auth.loggedIn)
+    if (!this.$auth.loggedIn) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
