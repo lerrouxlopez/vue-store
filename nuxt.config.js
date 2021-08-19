@@ -25,7 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/repository', mode: 'client'}
+    { src: '~/plugins/repository', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,11 +45,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
-  
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: 'https://accounts.ibial.com/api/v1'
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -76,17 +71,17 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: '/login',
+            url: 'login',
             method: 'post',
             propertyName: 'success.token'
           },
           user: {
-            url: '/getUser',
+            url: 'getUser',
             method: 'post',
             propertyName: 'success'
           },
           logout: {
-            url: '/logout',
+            url: 'logout',
             method: 'post',
             propertyName: false
           }
@@ -99,8 +94,14 @@ export default {
     }
   },
   router: {
+    middleware: ['auth'],
     base: '/marketplace/'
   },
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: 'https://accounts.ibial.com/api/v1'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
