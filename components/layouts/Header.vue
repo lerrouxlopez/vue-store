@@ -11,7 +11,7 @@
           icon
           @click="$router.push('/')"
         >
-          <v-img src="/img/ibial-logo.svg" />
+          <v-img class="vicilogo" src="/img/ViciLogo.png" />
         </v-btn>
         <v-btn
           icon
@@ -166,5 +166,9 @@ export default {
 .header__panel {
   background-color: #FFFFFF !important;
   box-shadow: 1px 1px 10px rgba(160, 168, 176, 0.25) !important;
+}
+.vicilogo {
+  height: 62px;
+  width: 70px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="py-6 font-weight-bold mt-12"><h2>iBial Products</h2></div>
+    <div class="py-6 font-weight-bold mt-12"><h2>Vici Products</h2></div>
     <v-row>
       <v-row v-if="loading">
         <v-col v-for="i in 3" :key="i">

@@ -4,7 +4,7 @@
         <div class="px-6 mx-6">
           <div class="text-center">
             <h1 class="font-weight-bold">
-                Login to iBial
+                Login to Vici
             </h1>
           </div>
           <div class="pt-6">

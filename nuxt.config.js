@@ -5,7 +5,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '',
-    title: 'iBial Store',
+    title: 'Vici Marketplace',
     htmlAttrs: {
       lang: 'en'
     },
@@ -98,7 +98,9 @@ export default {
       logout: '/'
     }
   },
-
+  router: {
+    base: '/marketplace/'
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
