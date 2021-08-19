@@ -45,11 +45,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth'
   ],
-  
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: 'https://accounts.ibial.com/api/v1'
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -99,8 +94,14 @@ export default {
     }
   },
   router: {
+    middleware: ['auth'],
     base: '/marketplace/'
   },
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: 'https://accounts.ibial.com/api/v1'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
