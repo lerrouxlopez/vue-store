@@ -82,15 +82,18 @@ export default {
       })
     },
     buynow (data) {
-      console.log('buy now')
-      const params = {
-        product_id: data.product_id,
-        quantity: 1,
-        option: '',
-        api_id: this.$auth.user.id,
-        customer_id: this.$auth.user.id
+      if (!this.$auth.loggedIn) {
+        this.$router.push('/login')
+      } else {
+        const params = {
+          product_id: data.product_id,
+          quantity: 1,
+          option: '',
+          api_id: this.$auth.user.id,
+          customer_id: this.$auth.user.id
+        }
+        this.$store.dispatch('addToCart', params)
       }
-      this.$store.dispatch('addToCart', params)
     },
     decodeHtml (str) {
       const map =

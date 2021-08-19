@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header v-if="this.$auth.loggedIn" />
+    <Header />
     <v-main class="main_panel">
       <v-container>
         <nuxt />

@@ -198,7 +198,7 @@
                 color="primary"
                 class="text-capitalize"
                 :loading="loading"
-                :disabled="!details.name || !$auth.loggedIn"
+                :disabled="!details.name"
                 block
                 @click="addToCart(details)"
               >
@@ -292,18 +292,22 @@ export default {
   },
   methods: {
     addToCart (details) {
-      this.loading = true
-      const date = new Date()
-      const params = {
-        product_id: details.product_id,
-        quantity: 1,
-        option: '',
-        api_id: this.$auth.user.id,
-        customer_id: this.$auth.user.id
+      if (!this.$auth.loggedIn) {
+        this.$router.push('/login')
+      } else {
+        this.loading = true
+        const date = new Date()
+        const params = {
+          product_id: details.product_id,
+          quantity: 1,
+          option: '',
+          api_id: this.$auth.user.id,
+          customer_id: this.$auth.user.id
+        }
+        console.log(date.getTime())
+        console.log(params)
+        this.$store.dispatch('addToCart', params)
       }
-      console.log(date.getTime())
-      console.log(params)
-      this.$store.dispatch('addToCart', params)
     },
     imgError () {
       this.src = this.defaultImg

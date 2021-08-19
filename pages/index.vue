@@ -13,12 +13,6 @@ import { StoreContent } from '@/components/layouts'
 export default {
   components: {
     StoreContent
-  },
-  created () {
-    console.log(this.$auth.loggedIn)
-    if (!this.$auth.loggedIn) {
-      this.$router.push('/login')
-    }
   }
 }
 </script>
