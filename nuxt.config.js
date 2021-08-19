@@ -71,17 +71,17 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'login',
+            url: 'https://accounts.ibial.com/api/v1/login',
             method: 'post',
             propertyName: 'success.token'
           },
           user: {
-            url: 'getUser',
+            url: 'https://accounts.ibial.com/api/v1/getUser',
             method: 'post',
             propertyName: 'success'
           },
           logout: {
-            url: 'logout',
+            url: 'https://accounts.ibial.com/api/v1/logout',
             method: 'post',
             propertyName: false
           }
