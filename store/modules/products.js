@@ -54,6 +54,24 @@ const actions = {
       console.log(error)
     }
     context.commit('GET_LATESTPRODUCTS', products)
+  },
+  async addReviews (context, payload) {
+    let reviews = []
+    try {
+      reviews = await this.$productRepository.addReviews(payload)
+      console.log('reviews->', reviews)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  async getReviews (context, payload) {
+    let reviews = []
+    try {
+      reviews = await this.$productRepository.getReviews(payload)
+      console.log('getreviews->', reviews)
+    } catch (error) {
+      console.log(error)
+    }
   }
   /* addToCart (context, payload) {
     context.commit('MY_CART', payload)

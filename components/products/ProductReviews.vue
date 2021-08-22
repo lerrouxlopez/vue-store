@@ -19,3 +19,9 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['product_id']
+}
+</script>

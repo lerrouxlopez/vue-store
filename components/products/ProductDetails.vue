@@ -135,13 +135,13 @@
               <v-tabs
                 color="primary accent-4"
               >
-                <v-tab class="text-capitalize">Post</v-tab>
+                <v-tab v-if="$auth.loggedIn" class="text-capitalize">Post</v-tab>
                 <v-tab class="text-capitalize">Review</v-tab>
-                <v-tab-item>
-                  <ProductDescription :details="details.details" :features="details.features"/>
+                <v-tab-item v-if="$auth.loggedIn">
+                  <ProductDescription :details="details" :features="details.features"/>
                 </v-tab-item>
                 <v-tab-item>
-                  <ProductReviews />
+                  <ProductReviews :product_id="details.product_id"/>
                 </v-tab-item>
               </v-tabs>
 
