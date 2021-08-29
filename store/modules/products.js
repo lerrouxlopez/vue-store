@@ -72,7 +72,18 @@ const actions = {
     } catch (error) {
       console.log(error)
     }
+  },
+
+  async compareProducts (context, payload) {
+    let compare = []
+    try {
+      compare = await this.$productRepository.compareProducts(payload)
+      console.log('comapre->', compare)
+    } catch (error) {
+      console.log(error)
+    }
   }
+
   /* addToCart (context, payload) {
     context.commit('MY_CART', payload)
   },

@@ -28,5 +28,11 @@ export default $axios => ({
     const data = new FormData()
     data.append('product_id', id)
     return $axios.$post(`${API_URL}/getReviews`, data)
+  },
+  compareProducts (params) {
+    const data = new FormData()
+    data.append('product_one', params.product_one)
+    data.append('product_two', params.product_two)
+    return $axios.$post(`${API_URL}/compareProducts`, data)
   }
 })

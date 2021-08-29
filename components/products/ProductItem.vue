@@ -19,7 +19,7 @@
             class="mx-auto pt-3"
           ></v-img>
         </div>
-        <v-card-title class="text-truncate">
+        <v-card-title class="">
           {{ product.name }}
         </v-card-title>
         <v-card-text>

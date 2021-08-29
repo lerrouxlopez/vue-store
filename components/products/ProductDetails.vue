@@ -75,10 +75,10 @@
                   </thead>
                   <tbody>
                     <tr v-for="(item, i) in comparison" :key="i">
-                      <td  class="caption text-center">{{ item.package }}</td>
-                      <td  class="caption text-center"><v-icon color="primary">{{ item.basic ? 'mdi-check' : ''}}</v-icon></td>
-                      <td  class="caption text-center"><v-icon color="primary">{{ item.standard ? 'mdi-check' : '' }}</v-icon></td>
-                      <td  class="caption text-center"><v-icon color="primary">{{ item.premium ? 'mdi-check' : '' }}</v-icon></td>
+                      <td  class="caption text-center">{{ item.name }}</td>
+                      <td  class="caption text-center">{{ parseInt(item.price).toFixed(2) }}</td>
+                      <td  class="caption text-center">{{ parseInt(item.price).toFixed(2) }}</td>
+                      <td  class="caption text-center">{{ parseInt(item.price).toFixed(2) }}</td>
                     </tr>
                     <tr>
                       <td class="caption text-center">Refund period</td>
@@ -95,7 +95,6 @@
                     <tr>
                       <td class="caption text-center">Price</td>
                       <td class="medium_gray--text caption font-weight-bold text-center py-3">
-                        $10
                         <div class="pt-3">
                           <v-btn
                             rounded
@@ -106,7 +105,6 @@
                         </div>
                       </td>
                       <td class="medium_gray--text caption font-weight-bold text-center py-3">
-                        $50
                         <div class="pt-3">
                           <v-btn
                             rounded
@@ -117,7 +115,6 @@
                         </div>
                       </td>
                       <td class="medium_gray--text caption font-weight-bold text-center py-3">
-                        $100
                         <div class="pt-3">
                           <v-btn
                             rounded
@@ -229,7 +226,8 @@ export default {
       panel: '',
       defaultImg: '/img/default.jpg',
       loading: false,
-      comparison: [
+      comparison: []
+      /* comparison: [
         {
           package: 'Content 1',
           basic: true,
@@ -248,7 +246,7 @@ export default {
           standard: false,
           premium: true
         }
-      ]
+      ] */
     }
   },
   computed: {
@@ -311,7 +309,24 @@ export default {
     },
     imgError () {
       this.src = this.defaultImg
+    },
+    async compareProducts () {
+      try {
+        const data = {
+          product_one: this.$route.params.id,
+          product_two: 50
+        }
+        await this.$productRepository.compareProducts(data).then((res) => {
+          console.log('compare->', res)
+          this.comparison = res
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
+  },
+  mounted () {
+    this.compareProducts()
   }
 }
 </script>
